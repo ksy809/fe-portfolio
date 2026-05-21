@@ -1,11 +1,13 @@
 export type SkillCategory = {
   title: string;
+  note?: string;
   items: string[];
 };
 
 export const skills: SkillCategory[] = [
   {
     title: "Frontend",
+    note: "주력 영역",
     items: [
       "React",
       "Next.js",
@@ -18,14 +20,17 @@ export const skills: SkillCategory[] = [
   },
   {
     title: "Backend / Database",
-    items: ["Java", "Spring Boot", "SQL", "Prisma"],
+    note: "프로젝트 시 보조로 사용",
+    items: ["Java", "Spring Boot", "SQL", "Oracle"],
   },
   {
     title: "Tools",
-    items: ["Git", "GitHub", "VSCode", "Docker", "DBeaver", "Postman", "Figma"],
+    note: "일상 작업·협업 도구",
+    items: ["Git", "GitHub", "VSCode", "Postman", "Figma"],
   },
   {
-    title: "Deployment / Environment",
-    items: ["Netlify", "WSL2", "Linux (Ubuntu)", "Remote SSH"],
+    title: "Deployment",
+    note: "개인 프로젝트 배포",
+    items: ["Netlify"],
   },
 ];

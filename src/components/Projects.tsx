@@ -78,28 +78,30 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-2 border-t border-line pt-3">
-          {project.links?.github && (
-            <a
-              href={project.links.github}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1.5 rounded-md border border-line bg-bg-soft px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-accent/40 hover:text-accent"
-            >
-              <span aria-hidden>{"<>"}</span> GitHub
-            </a>
-          )}
-          {project.links?.demo && (
-            <a
-              href={project.links.demo}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1.5 rounded-md border border-line bg-bg-soft px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-accent/40 hover:text-accent"
-            >
-              <span aria-hidden>↗</span> Demo
-            </a>
-          )}
-        </div>
+        {(project.links?.github || project.links?.demo) && (
+          <div className="flex flex-wrap items-center gap-2 border-t border-line pt-3">
+            {project.links?.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 rounded-md border border-line bg-bg-soft px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                <span aria-hidden>{"<>"}</span> GitHub
+              </a>
+            )}
+            {project.links?.demo && (
+              <a
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 rounded-md border border-line bg-bg-soft px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                <span aria-hidden>↗</span> Demo
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

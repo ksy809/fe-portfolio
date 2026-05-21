@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import BackgroundFX from "@/components/BackgroundFX";
 
 export const metadata: Metadata = {
   title: "김시연 · Frontend Developer",
@@ -21,6 +22,17 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="min-h-screen bg-bg text-zinc-200 antialiased">
+        {/* atmosphere layers — all fixed, pointer-events: none, behind content */}
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 -z-20 bg-dots"
+        />
+        <BackgroundFX />
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 -z-10 bg-noise opacity-[0.04] mix-blend-overlay"
+        />
+
         {children}
       </body>
     </html>

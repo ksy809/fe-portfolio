@@ -27,8 +27,7 @@ export const projects: Project[] = [
       "실제 사용 흐름 기준으로 반복 개선",
     ],
     links: {
-      github: "https://github.com/ksy809",
-      demo: "#",
+      github: "https://github.com/ksy809/Re_View",
     },
     status: "completed",
   },
@@ -45,8 +44,8 @@ export const projects: Project[] = [
       "Netlify 배포 및 도메인 운영 경험",
     ],
     links: {
-      github: "https://github.com/ksy809",
-      demo: "#",
+      github: "https://github.com/ksy809/Pomodoro",
+      demo: "https://p0m0d0r0-timer.netlify.app",
     },
     status: "personal",
   },
@@ -63,9 +62,6 @@ export const projects: Project[] = [
       "단계형 진행 구조로 몰입감 있는 안전교육 경험 설계",
       "모든 문제 완료 시 엔딩 영상이 재생되며 게임이 마무리되는 흐름",
     ],
-    links: {
-      github: "https://github.com/ksy809",
-    },
     status: "completed",
   },
 ];

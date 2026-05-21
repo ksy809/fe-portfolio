@@ -7,6 +7,9 @@
     "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  /* updated by BackgroundFX; safe defaults for SSR / no-JS */
+  --mx: 50%;
+  --my: 30%;
 }
 
 html {
@@ -15,11 +18,19 @@ html {
 }
 
 body {
-  background-color: #0a0a0b;
   color: #e4e4e7;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* base color comes from `bg-bg` utility on <body> */
+  /* scroll-attached atmosphere — gradients distributed across full page height,
+     so scrolling reveals a slowly shifting color mix */
+  background-image:
+    radial-gradient(900px 600px at 12% 6%, rgba(52, 211, 153, 0.07), transparent 70%),
+    radial-gradient(800px 600px at 88% 24%, rgba(56, 189, 248, 0.06), transparent 70%),
+    radial-gradient(900px 700px at 18% 54%, rgba(99, 102, 241, 0.05), transparent 70%),
+    radial-gradient(700px 600px at 84% 82%, rgba(52, 211, 153, 0.05), transparent 70%);
+  background-repeat: no-repeat;
 }
 
 ::selection {
@@ -33,17 +44,17 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0b;
+  background: #0a0b12;
 }
 ::-webkit-scrollbar-thumb {
-  background: #26262d;
+  background: #2a2d3a;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #34d399;
 }
 
-/* grid background utility */
+/* ── existing grid utility (hero) ── */
 .bg-grid {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
@@ -55,4 +66,49 @@ body {
 .bg-radial-fade {
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+/* ── new: viewport-fixed atmosphere layers ── */
+
+/* faint dot pattern, brightest near viewport center */
+.bg-dots {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 50%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 50%,
+    transparent 100%
+  );
+}
+
+/* mouse-following soft glow — uses CSS vars set by BackgroundFX */
+.bg-mouse-glow {
+  background: radial-gradient(
+    560px circle at var(--mx, 50%) var(--my, 30%),
+    rgba(94, 234, 212, 0.16),
+    rgba(52, 211, 153, 0.06) 35%,
+    transparent 55%
+  );
+}
+
+/* film grain via inline SVG noise (~250 bytes) */
+.bg-noise {
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+}
+
+/* respect users who opted out of motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

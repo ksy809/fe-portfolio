@@ -10,13 +10,13 @@ const config: Config = {
       },
       colors: {
         bg: {
-          DEFAULT: "#0a0a0b",
-          soft: "#101013",
-          card: "#111114",
+          DEFAULT: "#0a0b12",
+          soft: "#12141c",
+          card: "#14161f",
         },
         line: {
-          DEFAULT: "#1f1f24",
-          soft: "#26262d",
+          DEFAULT: "#1f2230",
+          soft: "#2a2d3a",
         },
         accent: {
           DEFAULT: "#34d399",
