@@ -1,5 +1,7 @@
 # 김시연 · Frontend Developer Portfolio
 
+[![Live](https://img.shields.io/badge/Live-siyeon--portfolio.netlify.app-34d399?style=flat-square&logo=netlify&logoColor=white)](https://siyeon-portfolio.netlify.app/)
+
 12주 인턴십 동안 매주 업데이트되는 **성장형 포트폴리오**입니다.
 Next.js (App Router) + TypeScript + Tailwind CSS 기반 한 페이지 구조.
 
@@ -13,12 +15,15 @@ npm run dev
 # http://localhost:3000
 ```
 
-빌드 / 프로덕션 실행:
+정적 빌드:
 
 ```bash
 npm run build
-npm start
+# → ./out 디렉토리에 정적 사이트가 생성됩니다
 ```
+
+프로덕션 배포는 [Netlify](https://siyeon-portfolio.netlify.app/)로 자동화되어 있어,
+`main` 브랜치에 push하면 자동으로 재배포됩니다.
 
 ---
 
@@ -118,26 +123,6 @@ profile/
 
 ---
 
-## 2 ~ 12주차 업데이트 방향 (제안)
-
-| 주차 | 테마 | 추천 작업 |
-|---|---|---|
-| **W2** | 코드베이스 적응 | 첫 작은 PR(오타/스타일) · 컴포넌트 한 개 분리 |
-| **W3** | 디자인 시스템 감각 | 색/간격/타이포 토큰 정리, 공용 Button 추출 |
-| **W4** | 상태관리 / 데이터 흐름 | 페이지 1개 골라 데이터 흐름 다이어그램화 |
-| **W5** | 접근성 (a11y) | 키보드 내비게이션 점검, alt/aria 정리, Lighthouse 점수 기록 |
-| **W6** | 성능 1차 점검 | LCP/CLS 측정, 이미지/폰트 로딩 개선 |
-| **W7** | 폼 & 검증 | 실무 폼 하나 구현 (zod/react-hook-form 등) |
-| **W8** | API 연동 패턴 | fetch 래퍼 / 에러 바운더리 / 로딩 UI 패턴 정리 |
-| **W9** | 테스트 첫걸음 | 작은 컴포넌트 단위 테스트, 사용자 시나리오 1개 |
-| **W10** | 디테일 다듬기 | 토스트 / 빈 상태 / 에러 상태 UI 표준화 |
-| **W11** | 회고 & 리팩터링 | 1~10주 코드 회고, 작은 리팩터 PR |
-| **W12** | 정리 & 발표 | 인턴 회고 글 / 핵심 PR 정리 / 포트폴리오 최종본 |
-
-각 주차는 `weeklyLogs.ts`에 항목 추가 → 푸시만 하면 자동으로 페이지에 반영됩니다.
-
----
-
 ## 추후 확장 아이디어
 
 가벼운 것부터 무거운 순:
@@ -151,11 +136,10 @@ profile/
 7. **CMS 연동** — Notion / Contentlayer / MDX 중 하나로 콘텐츠 분리
 8. **방문자 분석** — Vercel Analytics 또는 Plausible
 9. **댓글 / 방명록** — Giscus (GitHub Discussions)
-10. **자동 배포** — Vercel 또는 Netlify + main 브랜치 push 트리거
 
 ---
 
 ## 만든 사람
 
-김시연 · Frontend Developer · `ksy@orinu.ai`
+김시연 · Frontend Developer · `ss741219@daum.net`
 Crafted with **Claude Code**.
