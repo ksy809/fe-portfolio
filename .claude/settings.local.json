@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($items = Get-ChildItem -Force -ErrorAction SilentlyContinue; if \\($items\\) { $items | ForEach-Object { $_.Name } } else { \"Directory is empty\" })",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)"
+    ]
+  }
+}
