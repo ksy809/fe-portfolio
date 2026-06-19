@@ -123,7 +123,7 @@ export default function Internship() {
             </span>
             <div className="rounded-xl border border-dashed border-line bg-bg-card/40 p-5 text-sm text-zinc-500">
               <span className="font-mono text-xs text-zinc-600">
-                week 5 ~ 12
+                week 6 ~ 12
               </span>
               <p className="mt-1">
                 매주 새로운 학습 / 회고 / 작은 개선 기록을 이어서 추가할

@@ -45,9 +45,23 @@ export const weeklyLogs: WeeklyLog[] = [
     ],
     status: "done",
   },
+  {
+    week: 5,
+    title: "어드민 CRUD & 제품 시연 영상",
+    date: "2026-W25",
+    summary:
+      "콘텐츠를 직접 관리할 수 있는 어드민 CRUD를 구현하고, orinu.ai 제품 시연 영상을 제작한 주차.",
+    items: [
+      "어드민 콘텐츠 CRUD 구현 (목록 · 상세 · 작성 · 수정)",
+      "콘텐츠 DB 설계 및 구축",
+      "공개 상세 페이지 ↔ DB 연동",
+      "orinu.ai 제품 시연(데모) 영상 제작",
+    ],
+    status: "done",
+  },
   // 이후 주차는 아래 형식으로 계속 추가하기만 하면 됩니다.
   // {
-  //   week: 5,
+  //   week: 6,
   //   title: "...",
   //   date: "2026-W25",
   //   summary: "...",
