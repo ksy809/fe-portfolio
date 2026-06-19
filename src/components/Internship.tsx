@@ -17,7 +17,9 @@ const STATUS_LABEL: Record<WeeklyLog["status"], string> = {
 };
 
 export default function Internship() {
-  const completedCount = weeklyLogs.filter((l) => l.status === "done").length;
+  const completedCount = weeklyLogs
+    .filter((l) => l.status === "done")
+    .reduce((sum, l) => sum + ((l.weekEnd ?? l.week) - l.week + 1), 0);
   const progress = Math.round((completedCount / TOTAL_WEEKS) * 100);
 
   return (
@@ -121,7 +123,7 @@ export default function Internship() {
             </span>
             <div className="rounded-xl border border-dashed border-line bg-bg-card/40 p-5 text-sm text-zinc-500">
               <span className="font-mono text-xs text-zinc-600">
-                week 2 ~ 12
+                week 5 ~ 12
               </span>
               <p className="mt-1">
                 매주 새로운 학습 / 회고 / 작은 개선 기록을 이어서 추가할
@@ -147,6 +149,7 @@ function LogItem({ log }: { log: WeeklyLog }) {
         <header className="mb-3 flex flex-wrap items-center gap-3">
           <span className="font-mono text-xs text-accent">
             week {String(log.week).padStart(2, "0")}
+            {log.weekEnd ? ` – ${String(log.weekEnd).padStart(2, "0")}` : ""}
           </span>
           <span
             className={`rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${STATUS_STYLE[log.status]}`}
