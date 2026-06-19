@@ -90,6 +90,7 @@ profile/
 ```ts
 {
   week: 2,
+  weekEnd: 4,        // (선택) 여러 주차를 하나로 묶을 때만. 단일 주차면 생략
   title: "코드베이스 적응 & 첫 PR",
   date: "2026-W22",
   summary: "...",
@@ -98,7 +99,10 @@ profile/
 }
 ```
 
-진행률 바 (`completed / 12 weeks`)는 `status: "done"` 개수로 자동 계산됩니다.
+`weekEnd`를 주면 타임라인 라벨이 `week 02 – 04`처럼 범위로 표시됩니다.
+
+진행률 바 (`completed / 12 weeks`)는 `status: "done"` 항목의 **주차 수**로 자동 계산됩니다.
+묶음 주차(`weekEnd`)는 포함된 주 수만큼(예: week 2–4 → 3주) 합산됩니다.
 
 ### 새 프로젝트 추가
 `src/data/projects.ts` 에 객체 하나 추가.
