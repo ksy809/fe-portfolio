@@ -17,10 +17,10 @@ const STATUS_LABEL: Record<WeeklyLog["status"], string> = {
 };
 
 export default function Internship() {
-  const completedCount = weeklyLogs
-    .filter((l) => l.status === "done")
-    .reduce((sum, l) => sum + ((l.weekEnd ?? l.week) - l.week + 1), 0);
-  const progress = Math.round((completedCount / TOTAL_WEEKS) * 100);
+  const lastLoggedWeek = Math.max(
+    ...weeklyLogs.map((l) => l.weekEnd ?? l.week),
+  );
+  const progress = Math.round((lastLoggedWeek / TOTAL_WEEKS) * 100);
 
   return (
     <section id="internship" className="scroll-mt-24 py-24 sm:py-28">
@@ -91,7 +91,7 @@ export default function Internship() {
           <div className="mb-3 flex items-center justify-between font-mono text-xs text-zinc-500">
             <span>internship.progress</span>
             <span className="text-zinc-300">
-              {completedCount} / {TOTAL_WEEKS} weeks
+              {lastLoggedWeek} / {TOTAL_WEEKS} weeks
             </span>
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-bg-soft">
@@ -117,20 +117,22 @@ export default function Internship() {
             <LogItem key={log.week} log={log} />
           ))}
 
-          <li className="relative">
-            <span className="absolute -left-[33px] top-2 grid h-4 w-4 place-items-center sm:-left-[41px]">
-              <span className="h-2 w-2 rounded-full border border-dashed border-zinc-600" />
-            </span>
-            <div className="rounded-xl border border-dashed border-line bg-bg-card/40 p-5 text-sm text-zinc-500">
-              <span className="font-mono text-xs text-zinc-600">
-                week 6 ~ 12
+          {lastLoggedWeek < TOTAL_WEEKS && (
+            <li className="relative">
+              <span className="absolute -left-[33px] top-2 grid h-4 w-4 place-items-center sm:-left-[41px]">
+                <span className="h-2 w-2 rounded-full border border-dashed border-zinc-600" />
               </span>
-              <p className="mt-1">
-                매주 새로운 학습 / 회고 / 작은 개선 기록을 이어서 추가할
-                예정입니다.
-              </p>
-            </div>
-          </li>
+              <div className="rounded-xl border border-dashed border-line bg-bg-card/40 p-5 text-sm text-zinc-500">
+                <span className="font-mono text-xs text-zinc-600">
+                  week {lastLoggedWeek + 1} ~ {TOTAL_WEEKS}
+                </span>
+                <p className="mt-1">
+                  매주 새로운 학습 / 회고 / 작은 개선 기록을 이어서 추가할
+                  예정입니다.
+                </p>
+              </div>
+            </li>
+          )}
         </ol>
       </div>
     </section>
