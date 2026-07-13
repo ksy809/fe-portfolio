@@ -22,7 +22,9 @@ npm run build
 # → ./out 디렉토리에 정적 사이트가 생성됩니다
 ```
 
-프로덕션 배포는 [Netlify](https://siyeon-portfolio.netlify.app/)로 자동화되어 있어,
+**배포 링크**: https://siyeon-portfolio.netlify.app/
+
+프로덕션 배포는 Netlify로 자동화되어 있어,
 `main` 브랜치에 push하면 자동으로 재배포됩니다.
 
 ---
